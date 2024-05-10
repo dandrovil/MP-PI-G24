@@ -1,7 +1,4 @@
-ISPC - TSCDIA
-Modulo Programacion 
-Proyecto Integrador
-Grupo 24
+ISPC - TSCDIA - Modulo Programacion - Proyecto Integrador - Grupo 24
 
 Miembros:
-Daniel Villaba - Nahir Z. - Adriel Delosanto - Dalmiro - Eglimar Ramirez - Luciano Gigena
+Daniel Villaba - Nahir Yanira Zucaria - Adriel Delosanto - Dalmiro Vilca - Eglimar Ramirez - Luciano Gigena
