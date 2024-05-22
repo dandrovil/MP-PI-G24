@@ -20,5 +20,10 @@ DNI: 36.876.897
 Email: adridelosanto@gmail.com
 Github: https://github.com/adriel1364
 
+Nombre: Dalmiro
+Apellido: Vilca
+DNI: 40.403.978
+Email: dalmirovilca@gmail.com
+Github: https://github.com/dalmiro
 
 
