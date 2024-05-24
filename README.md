@@ -41,3 +41,4 @@ Miembros:
 Propuestas:
 
 1. Desarrollar un sistema de gestión para un estacionamiento de autos.
+2. Desarrollar Un Sistema de Administracion de Franquiciados/Empleados.
