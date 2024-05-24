@@ -45,3 +45,5 @@ Propuestas:
 3. Desarrollar Un Sistema Para un Taller Mecanico.
 4. Desarrollar Un Sistema de administracion/organizacion de estudios medicos.
 5. Desarrollar un sistema de gestion para una academia virtual.
+
+Prouesta Elegida: Desarrollar Un Sistema Para un Taller Mecanico.
