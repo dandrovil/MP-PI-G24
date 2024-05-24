@@ -37,3 +37,7 @@ Miembros:
             DNI: 96.062.692
             Email: eglimarmramirez@gmail.com
             Github: https://github.com/EglimarRamirez
+
+Propuestas:
+
+1. Desarrollar un sistema de gestión para un estacionamiento de autos.
