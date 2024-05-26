@@ -8,4 +8,4 @@ Dalmiro Vilca -> Repositorio Personal -> https://github.com/Dalmiro/solucionesPr
 
 Luciano Gigena -> Repositorio Personal -> https://github.com/luchogigena/solucionesPracticas.git
 
-Eglimar Ramirez -> Repositorio Personal ->
+Eglimar Ramirez -> Repositorio Personal ->https://github.com/EglimarRamirez/ProgramacionISPC
