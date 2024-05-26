@@ -59,24 +59,28 @@ Prouesta Elegida: Desarrollar Un Sistema Para un Taller Mecanico.
 El sistema de gestión que se desarrolla, es una solución integral para optimizar la operación diaria de un taller mecánico, facilitando la administración de clientes, vehículos, órdenes de trabajo, inventarios y facturación. Este sistema tiene como objetivo mejorar la eficiencia operativa, reducir errores administrativos y proporcionar una mejor experiencia tanto para los empleados del taller como para los clientes.
 
 
+
 **Funcionalidades Clave**
 
 
-Registro de Clientes y Vehículos: Permite agregar, modificar y eliminar clientes y sus vehículos.
+--Registro de Clientes y Vehículos: Permite agregar, modificar y eliminar clientes y sus vehículos.
 
-Gestión de Órdenes de Trabajo: Crea, visualiza y actualiza órdenes de trabajo. Cambia el estado de las órdenes cuando se completan.
+--Gestión de Órdenes de Trabajo: Crea, visualiza y actualiza órdenes de trabajo. Cambia el estado de las órdenes cuando se completan.
 
-Control de Inventario: Administra el inventario de repuestos
+--Control de Inventario: Administra el inventario de repuestos
 
-Generación de Facturas: Crea y visualiza facturas para los servicios prestados a los clientes.
+--Generación de Facturas: Crea y visualiza facturas para los servicios prestados a los clientes.
+
+
 
 
 **Beneficios del Sistema**
 
-Eficiencia Operativa: Reduce el tiempo y los errores asociados con la gestión manual de información.
 
-Mejor Servicio al Cliente: Proporciona información precisa y rápida a los clientes sobre sus vehículos y trabajos realizados.
+--Eficiencia Operativa: Reduce el tiempo y los errores asociados con la gestión manual de información.
 
-Transparencia y Trazabilidad: Facilita el seguimiento de las órdenes de trabajo y las responsabilidades de cada mecánico.
+--Mejor Servicio al Cliente: Proporciona información precisa y rápida a los clientes sobre sus vehículos y trabajos realizados.
 
-Automatización de Facturación: Asegura la generación precisa y rápida de facturas, mejorando el flujo de caja del taller.
+--Transparencia y Trazabilidad: Facilita el seguimiento de las órdenes de trabajo y las responsabilidades de cada mecánico.
+
+--Automatización de Facturación: Asegura la generación precisa y rápida de facturas, mejorando el flujo de caja del taller.
