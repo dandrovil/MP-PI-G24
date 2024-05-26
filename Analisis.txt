@@ -1,0 +1,19 @@
+Sistema de Gestión de Talleres Mecánicos:
+El sistema tiene como objetivo gestionar las operaciones de un taller mecánico, incluyendo el registro de clientes, vehículos, órdenes de trabajo, inventario de repuestos y facturación de servicios.
+
+                                                                            Funcionalidades Principales
+
+Gestión de Clientes:            
+Permite registrar nuevos clientes con su información personal, como nombre, dirección y número de contacto. Proporciona la capacidad de actualizar y consultar la información de los clientes existentes.
+
+Gestión de Vehículos:           
+Permite registrar nuevos vehículos asociados a los clientes, incluyendo detalles como la marca, modelo, año y placa del vehículo. Permite actualizar y consultar la información de los vehículos registrados.
+
+Gestión de Órdenes de Trabajo: 
+Permite crear nuevas órdenes de trabajo para reparaciones de vehículos, asignando un número único a cada orden. Permite actualizar el estado de las órdenes de trabajo (por ejemplo, en proceso, completado, cancelado) y consultar información detallada sobre cada orden.
+
+Gestión de Inventarios:        
+Permite mantener un registro del inventario de repuestos disponibles en el taller, incluyendo detalles como el nombre del repuesto, número de parte, cantidad en stock y precio unitario. Proporciona funciones para agregar, actualizar, eliminar y consultar repuestos en el inventario.
+
+Facturación:      
+Genera facturas para los servicios realizados, incluyendo detalles de la reparación, repuestos utilizados y el costo total de la factura. Proporciona funciones para registrar y consultar el historial de facturas emitidas.
