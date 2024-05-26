@@ -67,9 +67,9 @@ El sistema de gestión que se desarrolla, es una solución integral para optimiz
 
 --Gestión de Órdenes de Trabajo: Crea, visualiza y actualiza órdenes de trabajo. Cambia el estado de las órdenes cuando se completan.
 
---Control de Inventario: Administra el inventario de repuestos
-
 --Generación de Facturas: Crea y visualiza facturas para los servicios prestados a los clientes.
+
+--Control de stock: Permite tener un seguimiento e inventario del stock de respuestos notificando asi a los mecanicos cuando el stock ya es 0 del respuesto especifico 
 
 
 
@@ -81,6 +81,9 @@ El sistema de gestión que se desarrolla, es una solución integral para optimiz
 
 --Mejor Servicio al Cliente: Proporciona información precisa y rápida a los clientes sobre sus vehículos y trabajos realizados.
 
---Transparencia y Trazabilidad: Facilita el seguimiento de las órdenes de trabajo y las responsabilidades de cada mecánico.
+--Transparencia y Trazabilidad: Facilita el seguimiento de las órdenes de trabajo y las responsabilidades de cada mecánico.  
 
 --Automatización de Facturación: Asegura la generación precisa y rápida de facturas, mejorando el flujo de caja del taller.
+
+--Control permantente de stock: Asegura contar con respuestos necesarios y llevar un inventario de los mismos para brindar el servicio en un tiempo acorde y eficiente.
+  

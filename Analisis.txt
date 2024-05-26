@@ -13,6 +13,7 @@ Gestion de Vehiculos: Permite registrar nuevos veh¡culos asociados a los cliente
 
 Gestion de ordenes de Trabajo: Permite crear nuevas ordenes de trabajo para reparaciones de vehiculos, asignando un numero unico a cada orden. Permite actualizar el estado de las ordenes de trabajo (por ejemplo, en proceso, completado, cancelado) y consultar informacion detallada sobre cada orden.
 
-Gestin de Inventarios: Permite mantener un registro del inventario de repuestos disponibles en el taller, incluyendo detalles como el nombre del repuesto, n£mero de parte, cantidad en stock y precio unitario. Proporciona funciones para agregar, actualizar, eliminar y consultar repuestos en el inventario.
+Gestin de Inventarios: Permite mantener un registro del inventario de repuestos disponibles en el taller, incluyendo detalles como el nombre del repuesto, numero de parte, cantidad en stock y precio unitario. Proporciona funciones para agregar, actualizar, eliminar y consultar repuestos en el inventario.
 
 Facturacion: Genera facturas para los servicios realizados, incluyendo detalles de la reparacion, repuestos utilizados y el costo total de la factura. Proporciona funciones para registrar y consultar el historial de facturas emitidas.
+
