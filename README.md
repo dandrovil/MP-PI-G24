@@ -60,7 +60,7 @@ El sistema de gestión que se desarrolla, es una solución integral para optimiz
 
 
 
-**Funcionalidades Clave**
+**Funcionalidades Claves**
 
 
 --Registro de Clientes y Vehículos: Permite agregar, modificar y eliminar clientes y sus vehículos.
