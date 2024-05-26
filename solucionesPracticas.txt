@@ -6,6 +6,6 @@ Adriel Delosanto -> Repositorio Personal -> https://github.com/adriel1364/soluci
 
 Dalmiro Vilca -> Repositorio Personal ->
 
-Luciano Gigena -> Repositorio Personal ->
+Luciano Gigena -> Repositorio Personal -> https://github.com/luchogigena/solucionesPracticas.git
 
 Eglimar Ramirez -> Repositorio Personal ->
