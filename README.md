@@ -38,17 +38,10 @@ Miembros:
             Email: eglimarmramirez@gmail.com
             Github: https://github.com/EglimarRamirez
 
-Propuestas:
 
-1. Desarrollar un sistema de gestión para un estacionamiento de autos.
-2. Desarrollar Un Sistema de Administracion de Franquiciados/Empleados.
-3. Desarrollar Un Sistema Para un Taller Mecanico.
-4. Desarrollar Un Sistema de administracion/organizacion de estudios medicos.
-5. Desarrollar un sistema de gestion para una academia virtual.
+# **Propuesta: Desarrollo de un Sistema Para un Taller Mecanico.**
 
-Prouesta Elegida: Desarrollar Un Sistema Para un Taller Mecanico.
 
----
 
 # **DESCRIPCIÓN GENERAL DEL PROYECTO**
 
