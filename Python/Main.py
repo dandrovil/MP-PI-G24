@@ -22,7 +22,7 @@ def mostrar_menu():
         print(f'\033[{1}F', end='')
 
         if opcion == 1:
-           pass
+            pass
         elif opcion == 2:
             pass
         elif opcion == 3:
