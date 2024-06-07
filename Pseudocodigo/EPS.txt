@@ -1,0 +1,22 @@
+ANALISIS EPS DEL PROGRAMA TALLER MECANICO
+
+Entrada: Las entradas del sistema son las opciones que el usuario selecciona y los datos que proporciona para las diferentes funcionalidades del sistema. Estas entradas pueden incluir:
+
+Opciones de menú seleccionadas por el usuario (enteros).
+Datos específicos como información de repuestos, proveedores, clientes, órdenes de trabajo, y facturación.
+
+Proceso: El proceso incluye las operaciones y acciones que el sistema realiza basado en las entradas del usuario. Esto puede incluir:
+
+Mostrar y navegar por el menú principal y submenús.
+Agregar, actualizar, consultar y eliminar repuestos en el inventario.
+Gestionar órdenes de trabajo, incluyendo creación, actualización y consulta de órdenes.
+Gestionar información de clientes.
+Realizar procesos de facturación.
+
+Salida: Las salidas son las respuestas y resultados que el sistema proporciona al usuario. Estas pueden ser:
+
+Mensajes y menús mostrados en la pantalla.
+Resultados de consultas (e.g., disponibilidad de repuestos).
+Confirmaciones de acciones (e.g., repuesto agregado, cliente actualizado).
+Facturas generadas y mostradas al usuario.
+
