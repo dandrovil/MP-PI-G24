@@ -89,6 +89,8 @@ El sistema de gestión que se desarrolla, es una solución integral para optimiz
 
 
 
+Main: Se encarga de las presentacion de los diferentes menu de opciones del programa.
+
 Sql: Maneja el control a la base de datos, como conexion, consulta y desconexion.
 
 Clientes: Almacena la información de los clientes, como nombre, dirección y número de contacto.
