@@ -80,3 +80,23 @@ El sistema de gestión que se desarrolla, es una solución integral para optimiz
 
 --Control permantente de stock: Asegura contar con respuestos necesarios y llevar un inventario de los mismos para brindar el servicio en un tiempo acorde y eficiente.
   
+
+# Mapa de la Aplicacion
+
+
+[![5649876513.png](https://i.postimg.cc/j2TYLyDJ/5649876513.png)](https://postimg.cc/47WS07bJ)
+
+
+
+
+Sql: Maneja el control a la base de datos, como conexion, consulta y desconexion.
+
+Clientes: Almacena la información de los clientes, como nombre, dirección y número de contacto.
+
+Vehículos: Registra los vehículos asociados a los clientes, incluyendo detalles como la marca, modelo, año y placa del vehículo.
+
+Órdenes de Trabajo: Contiene detalles de las reparaciones solicitadas para cada vehículo, como el número de orden, estado de la reparación.
+
+Inventario: Registra el inventario de repuestos disponibles en el taller, incluyendo detalles como el nombre del repuesto, cantidad en stock y precio unitario.
+
+Facturas: Almacena detalles de las facturas generadas para los servicios realizados, incluyendo información de la orden de trabajo asociada, repuestos utilizados y el costo total de la factura.
