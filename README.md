@@ -26,12 +26,6 @@ Miembros:
             Email: dalmirovilca@gmail.com
             Github: https://github.com/dalmiro
 
-            Nombre: Luciano
-            Apellido: Gigena
-            DNI: 33.415.295
-            Email: gigena_luciano@yahoo.com.ar
-            Github: https://github.com/luchogigena
-
             Nombre: Eglimar
             Apellido: Ramirez
             DNI: 96.062.692
