@@ -38,6 +38,22 @@ def actualizar():
         print(f'Cliente con DNI/CUIT {dni_cuit} actualizado con exito.')
     else:
         print(f'Cliente con DNI/CUIT {dni_cuit} NO existe.')
+        
+def buscar(id):
+    query = "SELECT * FROM clientes WHERE dni_cuit = %s"
+    values = (id,)
+    sql.cursor.execute(query,values)
+    clientes = sql.cursor.fetchall()
+    if clientes:
+        for cliente in clientes:
+            print("--------------------")
+            print(f"Apellido y Nombre: {cliente[1]}")
+            print(f"Direccion: {cliente[2]}")
+            print(f"Telefono: {cliente[3]}")
+            print(f"Email: {cliente[4]}")
+            print("--------------------")
+    else:
+        print("No hay clientes con ese CUIT/DNI en la base de datos.")
 
 #Funcion para ELIMINAR UN CLIENTE en el inventario.
 def eliminar():
@@ -68,7 +84,6 @@ def consultar(dni_cuit):
     query = 'SELECT * FROM clientes WHERE dni_cuit = %s'
     values = (dni_cuit,)
     sql.cursor.execute(query, values)
-    clienteunico = sql.cursor.fetchone()
     if(sql.cursor.rowcount == 1):
         return True
     else:

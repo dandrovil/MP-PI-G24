@@ -3,7 +3,6 @@ import datetime
 import sql
 
 def crear():
-    
     x=datetime.datetime.now()
     patente = input("Ingrese Patente: ")
     if (not vehiculos.consultar(patente)): 
@@ -59,7 +58,6 @@ def buscar(id):
     query = "SELECT * FROM ordenes WHERE idOrden = %s"
     values = (id,)
     sql.cursor.execute(query, values)
-    orden = sql.cursor.fetchone()
     if(sql.cursor.rowcount == 1):
         return True
     else:

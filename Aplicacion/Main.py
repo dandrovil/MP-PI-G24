@@ -126,7 +126,8 @@ def mostrar_menu():
                    msvcrt.getch()
                
                 elif op == 3:
-                    clientes.consultar()
+                    id = input("Ingrese DNI/CUIT del cliente: (sin guiones) ")
+                    clientes.buscar(id)
                     msvcrt.getch()
                                     
                 elif op == 4:
@@ -170,7 +171,8 @@ def mostrar_menu():
                     pass
                 
                 elif op == 3:
-                    vehiculos.actualizar()
+                    id = input("Ingrese patente del vehiculo: (sin guiones) ")
+                    vehiculos.buscar(id)
                     msvcrt.getch()
                                     
                 elif op == 4:
@@ -190,8 +192,8 @@ def mostrar_menu():
                 os.system('cls')
                 print("............Bienvenido al Sistema de Taller Mecanico..............")
                 print("")
-                print("                        <<< CLIENTES >>>")
-                print("                            ========")
+                print("                        <<< MECANICOS >>>")
+                print("                            =========")
                 print("")
                 print("                 (1) ---> AGREGAR NUEVO MECANICO")
                 print("                 (2) ---> ACTUALIZAR INFORMACION DEL MECANICO")
@@ -213,7 +215,8 @@ def mostrar_menu():
                    msvcrt.getch()
                
                 elif op == 3:
-                    mecanicos.consultar()
+                    id = input("Ingrese codigo de mecanico: ")
+                    mecanicos.buscar(id)
                     msvcrt.getch()
                                     
                 elif op == 4:
@@ -228,32 +231,48 @@ def mostrar_menu():
                     pass
                 
         elif opcion == 5:
-            os.system('cls')
-            print("............Bienvenido al Sistema de Taller Mecanico..............")
-            print("")
-            print("                         <<< STOCK >>>")
-            print("                             =====")
-            print("")
-            print("                 (1) ---> AGREGAR REPUESTO AL INVENTARIO")
-            print("                 (2) ---> ACTUALIZAR INFORMACION REPUESTO")
-            print("                 (3) ---> CONSULTAR DISPONIBILIDAD DE REPUESTO")
-            print("                 (4) ---> ELIMINAR REPUESTO DEL INVENTARIO")
-            print("                 (5) ---> VOLVER AL MENU ANTERIOR")
-            print("")
-            print("..................................................................")
+            op = 0
+            while op != 6:
+                os.system('cls')
+                print("............Bienvenido al Sistema de Taller Mecanico..............")
+                print("")
+                print("                         <<< STOCK >>>")
+                print("                             =====")
+                print("")
+                print("                 (1) ---> AGREGAR REPUESTO AL INVENTARIO")
+                print("                 (2) ---> ACTUALIZAR INFORMACION REPUESTO")
+                print("                 (3) ---> CONSULTAR DISPONIBILIDAD DE REPUESTO")
+                print("                 (4) ---> ELIMINAR REPUESTO DEL INVENTARIO")
+                print("                 (5) ---> MOSTRAR REPUESTOS")
+                print("                 (6) ---> VOLVER AL MENU ANTERIOR")
+                print("")
+                print("..................................................................")
             
-            op = int(input("Seleccione una opción: "))
+                op = int(input("Seleccione una opción: "))
             
-            if op == 1:
-                stock.agregar()
-            elif op == 2:
-                stock.actualizar()
-            elif op == 3:
-                stock.consultar()
-            elif op == 4:
-                stock.eliminar()
-            elif op == 5:
-                pass
+                if op == 1:
+                    stock.agregar()
+                    msvcrt.getch()
+                
+                elif op == 2:
+                    stock.actualizar()
+                    msvcrt.getch()
+                
+                elif op == 3:
+                    id = input("Ingrese codigo de repuesto: ")
+                    stock.buscar(id)
+                    msvcrt.getch()
+                
+                elif op == 4:
+                    stock.eliminar()
+                    msvcrt.getch()
+                
+                elif op == 5:
+                    stock.mostrar()
+                    msvcrt.getch()
+                
+                elif op == 6:
+                    pass
             
         elif opcion == 5:
             pass

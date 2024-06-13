@@ -22,12 +22,12 @@ def actualizar():
         query = 'SELECT * FROM autos WHERE patente = %s'
         values = (patente,)
         sql.cursor.execute(query, values)
-        pat = sql.cursor.fetchone()
+        patente = sql.cursor.fetchone()
         print("--------------------")
-        print(f"DNI/CUIT: {pat[1]}")
-        print(f"Marca: {pat[2]}")
-        print(f"Modelo: {pat[3]}")
-        print(f"Color: {pat[4]}")
+        print(f"DNI/CUIT: {patente[1]}")
+        print(f"Marca: {patente[2]}")
+        print(f"Modelo: {patente[3]}")
+        print(f"Color: {patente[4]}")
         print("--------------------")
         id_cliente = input("CUIT/DNI del cliente: (sin guiones) ")
         if (not clientes.consultar(id_cliente)):
@@ -43,6 +43,22 @@ def actualizar():
         print("Vehículo modificado exitosamente.")
     else:
         print("No se encontró ningún vehículo con esa patente.")
+
+def buscar(id):
+    query = "SELECT * FROM autos WHERE patente = %s"
+    values = (id,)
+    sql.cursor.execute(query,values)
+    patentes = sql.cursor.fetchall()
+    if patentes:
+        for patente in patentes:
+            print("--------------------")
+            print(f"DNI/CUIT: {patente[1]}")
+            print(f"Marca: {patente[2]}")
+            print(f"Modelo: {patente[3]}")
+            print(f"Color: {patente[4]}")
+            print("--------------------")
+    else:
+        print(f"No se encontró ningún vehículo con esa patente {id}.")
 
 def eliminar():
     patente = input("Ingrese la patente del vehículo que desea eliminar: ")
@@ -69,7 +85,6 @@ def consultar(patente):
     query = 'SELECT * FROM autos WHERE patente = %s'
     values = (patente,)
     sql.cursor.execute(query, values)
-    patente = sql.cursor.fetchone()
     if(sql.cursor.rowcount == 1):
         return True
     else:
