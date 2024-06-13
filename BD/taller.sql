@@ -124,6 +124,32 @@ LOCK TABLES `ordenes` WRITE;
 INSERT INTO `ordenes` VALUES (5,'ab123cd','2024-06-13','Cambio de aceite','0000-00-00','ASIGNADO',3),(6,'ij789kl','2024-06-13','Service 10000 kilometros','0000-00-00','INGRESADO',0),(7,'qr345st','2024-06-13','Calentamiento del motor','0000-00-00','ASIGNADO',1);
 /*!40000 ALTER TABLE `ordenes` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `stock`
+--
+
+DROP TABLE IF EXISTS `stock`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `stock` (
+  `idstock` int NOT NULL AUTO_INCREMENT,
+  `marca` varchar(15) DEFAULT NULL,
+  `descripcion` varchar(45) NOT NULL,
+  `existencia` int NOT NULL,
+  PRIMARY KEY (`idstock`)
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `stock`
+--
+
+LOCK TABLES `stock` WRITE;
+/*!40000 ALTER TABLE `stock` DISABLE KEYS */;
+INSERT INTO `stock` VALUES (101,'Toyota','Filtro de aire',50),(102,'Honda','Pastillas de freno',30),(103,'Ford','Aceite de motor',20),(104,'Nissan','Batería',15),(105,'Chevrolet','Llanta',25);
+/*!40000 ALTER TABLE `stock` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -134,4 +160,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-13  9:01:29
+-- Dump completed on 2024-06-13 18:24:57
