@@ -77,7 +77,7 @@ El sistema de gestión que se desarrolla, es una solución integral para optimiz
 
 ## **Carpeta aplicacion** ##
 
-**Modulo Mecanico.py ** 
+**Modulo Mecanico.py** 
 Función agregar():Función para crear un nuevo mecanico en la base de datos.
 Funcion actualizar(): Funcion para actualizar datos de un mecanico en la base de datos.
 Funcion busquedaMecanico(): Funcion para buscar un mecanico por codigo de mecanico en la base.
