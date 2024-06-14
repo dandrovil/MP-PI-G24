@@ -85,6 +85,7 @@ def consultar(patente):
     query = 'SELECT * FROM autos WHERE patente = %s'
     values = (patente,)
     sql.cursor.execute(query, values)
+    sql.cursor.fetchone()
     if(sql.cursor.rowcount == 1):
         return True
     else:
