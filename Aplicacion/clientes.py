@@ -84,6 +84,7 @@ def consultar(dni_cuit):
     query = 'SELECT * FROM clientes WHERE dni_cuit = %s'
     values = (dni_cuit,)
     sql.cursor.execute(query, values)
+    sql.cursor.fetchone()
     if(sql.cursor.rowcount == 1):
         return True
     else:
