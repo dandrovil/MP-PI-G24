@@ -1,6 +1,6 @@
 import os
 import msvcrt
-import ot, clientes, vehiculos, stock, mecanicos
+import ot, clientes, vehiculos, stock, mecanicos, presupuestos
 import sql
 
 def mostrar_menu():
@@ -16,7 +16,8 @@ def mostrar_menu():
         print("                 (3) ---> VEHICULOS")
         print("                 (4) ---> MECANICOS")
         print("                 (5) ---> STOCK")
-        print("                 (6) ---> SALIR")
+        print("                 (6) ---> PRESUPUESTOS")
+        print("                 (7) ---> SALIR")
         print("")
         print("..................................................................")
 
@@ -274,10 +275,54 @@ def mostrar_menu():
                 elif op == 6:
                     pass
             
-        elif opcion == 5:
+        elif opcion == 6:
+            op = 0
+            while op != 6:
+                os.system('cls')
+                print("............Bienvenido al Sistema de Taller Mecanico..............")
+                print("")
+                print("                       <<< PRESUPUESTOS >>>")
+                print("                           ============")
+                print("")
+                print("                 (1) ---> CREAR PRESUPUESTO")
+                print("                 (2) ---> APROBAR/RECHAZAR PRESUPUESTO")
+                print("                 (3) ---> BUSCAR PRESUPUESTOS POR NRO. DE ORDEN")
+                print("                 (4) ---> MOSTRAR TODOS LOS PRESUPUESTOS")
+                print("                 (5) ---> MOSTRAR PRESUPUESOS EN DETALLE")
+                print("                 (6) ---> VOLVER AL MENU ANTERIOR")
+                print("")
+                print("..................................................................")
+            
+                op = int(input("Seleccione una opción: "))
+            
+                if op == 1:
+                    presupuestos.crear()
+                    msvcrt.getch()
+                
+                elif op == 2:
+                    presupuestos.oknok()
+                    msvcrt.getch()
+                                    
+                elif op == 3:
+                    id = input("Ingrese Nro. de orden a buscar: ")
+                    presupuestos.buscar(id)
+                    msvcrt.getch()
+                    pass
+                
+                elif op == 4:
+                    presupuestos.mostrar()
+                    msvcrt.getch()
+                                    
+                elif op == 5:
+                    id = input("Ingrese Nro. de presupuesto a detallar: ")
+                    presupuestos.detalle(id)
+                    msvcrt.getch()
+                                    
+                elif op == 6:
+                    pass
             pass
         
-        elif opcion == 6:
+        elif opcion == 7:
             print("Saliendo del sistema....")
             # sql.cerrar_bd() cerrar base de datos
             break
