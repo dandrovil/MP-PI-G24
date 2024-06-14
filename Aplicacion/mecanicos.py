@@ -15,10 +15,10 @@ def agregar():
 
 #Funcion para ACTUALIZAR DATOS DE UN MECANICO en la base de datos. / LISTO
 def actualizar():
-    idmeca = input('Codigo del mecanico: ')
-    if(consultar(idmeca)):
+    id = input('Codigo del mecanico: ')
+    if(consultar(id)):
         query = 'SELECT * FROM mecanicos WHERE idmeca = %s'
-        values = (idmeca,)
+        values = (id,)
         sql.cursor.execute(query,values)
         mecanico = sql.cursor.fetchone()
         print("--------------------")
@@ -80,10 +80,11 @@ def mostrar():
         print('No hay datos de ningun mecanico en la base de datos')
 
 #BUSCAR UN MECANICO POR CODIGO de mecanico en la base de datos. Funcion usada anteriormente.
-def consultar(idmeca):
+def consultar(id):
     query = 'SELECT * FROM mecanicos WHERE idmeca = %s'
-    values = (idmeca,)
+    values = (id,)
     sql.cursor.execute(query,values)
+    sql.cursor.fetchone()   
     if(sql.cursor.rowcount == 1):
         return True
     else:
