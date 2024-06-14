@@ -79,6 +79,7 @@ def consultar(idstock):
     query = 'SELECT * FROM stock WHERE idstock = %s'
     values = (idstock,)
     sql.cursor.execute(query, values)
+    sql.cursor.fetchone()
     if(sql.cursor.rowcount == 1):
         return True
     else:
