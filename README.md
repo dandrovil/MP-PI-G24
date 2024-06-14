@@ -85,7 +85,7 @@ Funcion mostrar mecanicos(): Funcion para mostrar todos los mecanicos en la base
 Funcion buscarMecanico(): Busca un mecanico por codigo de mecanico en la base de datos. Funcion usada
 anteriormente.
 
-** Modulo Presupuesto.py **
+**Modulo Presupuesto.py**
 Funcion agregar(): Agrega un nuevo presupuesto a la base de datos.
 Funcion actualizar(): Actualiza los datos de un presupuesto existente en la base de datos.
 Funcion eliminar(): Elimina un presupuesto de la base de datos.
@@ -93,7 +93,7 @@ Funcion busquedaPresupuesto(): Busca un presupuesto por su codigo en la base de 
 Funcion mostrar presupuestos(): Muestra todos los presupuestos almacenados en la base de datos.
 Funcion buscarPresupuesto(): Busca un presupuesto por su codigo en la base de datos.
 
-** Modulo Proveedor.py **
+**Modulo Proveedor.py**
 Funcion agregar():Agrega un nuevo proveedor a la base de datos.
 Funcion actualizar(): Actualiza los datos de un proveedor existente en la base de datos.
 Funcion eliminar(): Elimina un proveedor de la base de datos.
@@ -101,7 +101,7 @@ Funcion busquedaProveedor(): Muestra todos los proveedores almacenados en la bas
 Funcion mostrar proveedores():Muestra todos los proveedores almacenados en la base de datos.
 Funcion buscarProveedor(): Busca un proveedor por su codigo en la base de datos.
 
-** Modulo Stock.py **
+**Modulo Stock.py**
 Funcion agregar():Agrega nuevos ´ıtems al inventario.
 Funcion actualizar(): Actualiza los datos de un ıtem existente en el inventario.
 Funcion eliminar(): Elimina un ´ıtem del inventario.
@@ -110,7 +110,7 @@ Funcion mostrar stock():Muestra todos los ıtems almacenados en el inventario.
 Funcion buscarPrecio(): Se usa en otras funciones. Busca un ´ıtem en el inventario por su precio.
 Funcion buscarItem(): Se usa en otras funciones. Busca un item en el inventario por su codigo de repuesto.
 
-** Modulo Cliente.py **
+**Modulo Cliente.py**
 Funcion agregar(): Agrega un nuevo cliente a la base de datos.
 Funcion actualizar(): Actualiza los datos de un cliente existente en la base de datos.
 Funcion eliminar(): Elimina un cliente de la base de datos.
