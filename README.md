@@ -70,6 +70,24 @@ Este sistema tiene como objetivo mejorar la eficiencia operativa, reducir errore
 - Control permanente de stock: Asegura contar con repuestos necesarios y llevar un inventario de los mismos para brindar el servicio en un tiempo acorde y eficiente.
 
 
+## **Cómo usar la aplicación**
+
+En el menú principal del programa se mostrarán opciones para interactuar con las diferentes funcionalidades de cada módulo.  
+Al elegir alguno de estos módulos se darán las opciones de crear, eliminar, actualizar o mostrar instancias de una entidad, según el módulo qué se seleccione.  
+Una vez seleccionado un módulo se deberá elegir a continuación qué acción se desea realizar ( crear, eliminar, actualizar o mostrar) y luego se deberá ingresar los datos solicitados por el programa.
+El resultado se mostrará en terminal de acuerdo a las opciones elegidas.  
+**NOTA:** Revisar el archivo **Video** del repositorio para información adicional.
+
+
+## **Requisitos de la aplicación**
+
+Para utilizar el programa se deberá instalar lo siguiente:  
+- SQL y MySQL Workbench- Se recomienda desde la web [MySQL Installer](https://dev.mysql.com/downloads/installer/ "MySQL Installer")
+- SQL Connector - Desde la terminal usar el comando pip install mysqlx-connector-python.
+- Pandas - Desde la terminal usar el comando pip install pandas.
+- Tabulate - Desde la terminal usar el comando pip install tabulate.
+
+
 
 
 ## Mapa de la Aplicación
@@ -160,24 +178,4 @@ Este sistema tiene como objetivo mejorar la eficiencia operativa, reducir errore
 - **Análisis.txt:** Archivo en formato txt qué contiene el análisis  de funcionamiento del programa.
 - **README.md:** Archivo en formato markdown qué contiene principalmente  información sobre el contenido del repositorio, el funcionamiento general del programa y cómo utilizarlo.
 - **Video:** Video explicativo del uso de la aplicación, con casos de uso y ejemplos.
-
-
-## **Cómo usar la aplicación**
-
-
-En el menú principal del programa se mostrarán opciones para interactuar con las diferentes funcionalidades de cada módulo.  
-Al elegir alguno de estos módulos se darán las opciones de crear, eliminar, actualizar o mostrar instancias de una entidad, según el módulo qué se seleccione.  
-Una vez seleccionado un módulo se deberá elegir a continuación qué acción se desea realizar ( crear, eliminar, actualizar o mostrar) y luego se deberá ingresar los datos solicitados por el programa.
-El resultado se mostrará en terminal de acuerdo a las opciones elegidas.
-NOTA: Revisar el archivo **Video** del repositorio para información adicional.
-
-
-## **Requisitos de la aplicación**
-
-
-Para utilizar el programa se deberá instalar lo siguiente:  
-- SQL y MySQL Workbench- Se recomienda desde la web [MySQL Installer](https://dev.mysql.com/downloads/installer/ "MySQL Installer")
-- SQL Connector - Desde la terminal usar el comando pip install mysqlx-connector-python.
-- Pandas - Desde la terminal usar el comando pip install pandas.
-- Tabulate - Desde la terminal usar el comando pip install tabulate.
 
