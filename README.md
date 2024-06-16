@@ -1,6 +1,6 @@
-Modulo Programacion - Proyecto Integrador - Grupo 24
+# **Modulo Programacion - Proyecto Integrador - Grupo 24** - **Propuesta: Desarrollo de un Sistema de Gestion Para un Taller Mecanico.**
 
-Miembros:
+## Miembros:
 
             Nombre: Daniel
             Apellido: Villalba
@@ -33,109 +33,116 @@ Miembros:
             Github: https://github.com/EglimarRamirez
 
 
-# **Propuesta: Desarrollo de un Sistema Para un Taller Mecanico.**
+## **Descripcion general del proyecto y aplicacion**
+
+El proyecto se realiza integrando los temas abordados en el "módulo de programador" del primer semestre del ISPC. Este abarca las materias Ética y Deontología Profesional, Base de Datos e Introducción a la Programación.  
+Se trata de un sistema de gestión que desarrolla una solución integral para optimizar la operación diaria de un taller mecánico, facilitando la administración de clientes, vehículos, órdenes de trabajo, inventarios y facturación.  
+Este sistema tiene como objetivo mejorar la eficiencia operativa, reducir errores administrativos y proporcionar una mejor experiencia tanto para los empleados del taller como para los clientes. Mientras qué a nivel académico busca plasmar los conocimientos adquiridos en las distintas materias durante el cursado del espacio curricular.
 
 
+## **Funcionalidades Claves**
 
-# **DESCRIPCIÓN GENERAL DEL PROYECTO**
+- Registro de Clientes y Vehículos: Permite agregar, modificar y eliminar clientes y sus vehículos.
+- Gestión de Órdenes de Trabajo: Crea, visualiza y actualiza órdenes de trabajo. Cambia el estado de las órdenes cuando se completan.
+- Generación de Facturas: Crea y visualiza facturas para los servicios prestados a los clientes.
+- Control de stock: Permite tener un seguimiento e inventario del stock de respuestos.
 
+## **Beneficios del Sistema**
 
-## **Sistema de Gestión Para un taller Mecánico**
-
-
-El sistema de gestión que se desarrolla, es una solución integral para optimizar la operación diaria de un taller mecánico, facilitando la administración de clientes, vehículos, órdenes de trabajo, inventarios y facturación. Este sistema tiene como objetivo mejorar la eficiencia operativa, reducir errores administrativos y proporcionar una mejor experiencia tanto para los empleados del taller como para los clientes.
-
-
-
-**Funcionalidades Claves**
-
-
---Registro de Clientes y Vehículos: Permite agregar, modificar y eliminar clientes y sus vehículos.
-
---Gestión de Órdenes de Trabajo: Crea, visualiza y actualiza órdenes de trabajo. Cambia el estado de las órdenes cuando se completan.
-
---Generación de Facturas: Crea y visualiza facturas para los servicios prestados a los clientes.
-
---Control de stock: Permite tener un seguimiento e inventario del stock de respuestos notificando asi a los mecanicos cuando el stock ya es 0 del respuesto especifico 
+- Eficiencia Operativa: Reduce el tiempo y los errores asociados con la gestión manual de información.
+- Mejor Servicio al Cliente: Proporciona información precisa y rápida a los clientes sobre sus vehículos y trabajos realizados.
+- Transparencia y Trazabilidad: Facilita el seguimiento de las órdenes de trabajo y las responsabilidades de cada mecánico.  
+- Automatización de Facturación: Asegura la generación precisa y rápida de facturas, mejorando el flujo de caja del taller.
+- Control permantente de stock: Asegura contar con respuestos necesarios y llevar un inventario de los mismos para brindar el servicio en un tiempo acorde y eficiente.
 
 
-
-
-**Beneficios del Sistema**
-
-
---Eficiencia Operativa: Reduce el tiempo y los errores asociados con la gestión manual de información.
-
---Mejor Servicio al Cliente: Proporciona información precisa y rápida a los clientes sobre sus vehículos y trabajos realizados.
-
---Transparencia y Trazabilidad: Facilita el seguimiento de las órdenes de trabajo y las responsabilidades de cada mecánico.  
-
---Automatización de Facturación: Asegura la generación precisa y rápida de facturas, mejorando el flujo de caja del taller.
-
---Control permantente de stock: Asegura contar con respuestos necesarios y llevar un inventario de los mismos para brindar el servicio en un tiempo acorde y eficiente.
-  
-
-## **Carpeta aplicacion** ##
-
-**Modulo Mecanico.py** 
--Función agregar():Función para crear un nuevo mecanico en la base de datos.
--Funcion actualizar(): Funcion para actualizar datos de un mecanico en la base de datos.
--Funcion busquedaMecanico(): Funcion para buscar un mecanico por codigo de mecanico en la base.
--Funcion mostrar mecanicos(): Funcion para mostrar todos los mecanicos en la base de datos.
--Funcion buscarMecanico(): Busca un mecanico por codigo de mecanico en la base de datos. Funcion usada
-anteriormente.
-
-**Modulo Presupuesto.py**
--Funcion agregar(): Agrega un nuevo presupuesto a la base de datos.
--Funcion actualizar(): Actualiza los datos de un presupuesto existente en la base de datos.
--Funcion eliminar(): Elimina un presupuesto de la base de datos.
--Funcion busquedaPresupuesto(): Busca un presupuesto por su codigo en la base de datos.
--Funcion mostrar presupuestos(): Muestra todos los presupuestos almacenados en la base de datos.
--Funcion buscarPresupuesto(): Busca un presupuesto por su codigo en la base de datos.
-
-**Modulo Proveedor.py**
--Funcion agregar():Agrega un nuevo proveedor a la base de datos.
--Funcion actualizar(): Actualiza los datos de un proveedor existente en la base de datos.
--Funcion eliminar(): Elimina un proveedor de la base de datos.
--Funcion busquedaProveedor(): Muestra todos los proveedores almacenados en la base de datos.
--Funcion mostrar proveedores():Muestra todos los proveedores almacenados en la base de datos.
--Funcion buscarProveedor(): Busca un proveedor por su codigo en la base de datos.
-
-**Modulo Stock.py**
--Funcion agregar():Agrega nuevos ´ıtems al inventario.
--Funcion actualizar(): Actualiza los datos de un ıtem existente en el inventario.
--Funcion eliminar(): Elimina un ´ıtem del inventario.
--Funcion busquedaPrecio(): Busca un ´ıtem por su precio en el inventario.
--Funcion mostrar stock():Muestra todos los ıtems almacenados en el inventario.
--Funcion buscarPrecio(): Se usa en otras funciones. Busca un ´ıtem en el inventario por su precio.
--Funcion buscarItem(): Se usa en otras funciones. Busca un item en el inventario por su codigo de repuesto.
-
-**Modulo Cliente.py**
--Funcion agregar(): Agrega un nuevo cliente a la base de datos.
--Funcion actualizar(): Actualiza los datos de un cliente existente en la base de datos.
--Funcion eliminar(): Elimina un cliente de la base de datos.
--Funcion buscarCliente(): Busca un cliente por su CUIT en la base de datos.
-
-
-
-# Mapa de la Aplicacion
-
-
+## Mapa de la Aplicacion
 [![5649876513.png](https://i.postimg.cc/j2TYLyDJ/5649876513.png)](https://postimg.cc/47WS07bJ)
 
+## **Contenido del repositorio**
+
+### **Carpeta Aplicacion**
+
+- **Main_V2.py:** Es el archivo qué contiene el código del menú principal del programa, desde el cuál se accede mediante input del usuario a las diferentes funciones (CRUD) de cada módulo.
 
 
+- **mecanicos.py:** Archivo con el CRUD del módulo MECANICOS.
+  - Función agregar():Función para crear un nuevo mecanico en la base de datos.
+  - Función agregar():Función para crear un nuevo mecanico en la base de datos.
+  - Funcion actualizar(): Funcion para actualizar datos de un mecanico en la base de datos.
+  - Funcion buscar(): #Funcion para buscar un mecanico en la base de datos.
+  - Funcion eliminar(): Funcion para eliminar un mecanico en la base de datos.
+  - Funcion mostrar(): Funcion para mostrar todos los mecanicos en la base de datos.
 
-Main: Se encarga de las presentacion de los diferentes menu de opciones del programa.
+- **presupuestos.py:** Archivo con el  CRUD del módulo presupuesto.
+  - Funcion crear(): Agrega un nuevo presupuesto a la base de datos.
+  - Funcion actualizar(): Actualiza los datos de un presupuesto existente en la base de datos.
+  - Funcion buscar(): Funcion para buscar un presupuesto por "idorden" en la base de datos.
+  - Funcion mostrar(): Muestra todos los presupuetos que existen en la base de datos.
+  - Funcion consultar(): Buscar un presupuesto por "idpresupuesto".
 
-Sql: Maneja el control a la base de datos, como conexion, consulta y desconexion.
+- **stock.py:** Archivo con el  CRUD del módulo stock.
+  - Funcion agregar():Agrega nuevos ´ıtems al inventario.
+  - Funcion actualizar(): Actualiza los datos de un ıtem existente en el inventario.
+  - Funcion eliminar(): Elimina un ´ıtem del inventario.
+  - Funcion mostrar(): Muestra todos los ıtems almacenados en el inventario.
+  - Funcion buscar(): Buscar item en el inventario por "idstock".
 
-Clientes: Almacena la información de los clientes, como nombre, dirección y número de contacto.
+- **clientes.py:** Archivo con el CRUD del módulo clientes.
+  - Funcion agregar(): Agrega un nuevo cliente a la base de datos.
+  - Funcion actualizar(): Actualiza los datos de un cliente existente en la base de datos.
+  - Funcion buscar(): Funcion para buscar un cliente en la base de datos.
+  - Funcion eliminar(): Elimina un cliente de la base de datos.
+  - Funcion mostrar(): Funcion para mostrar todos los clientes en la base de datos.
 
-Vehículos: Registra los vehículos asociados a los clientes, incluyendo detalles como la marca, modelo, año y placa del vehículo.
+- **vehiculos.py:** Archivo con el  CRUD del modulo vehiculos.
+  - Funcion agregar(): Agrega un nuevo vehiculo a la base de datos.
+  - Funcion actualizar(): Actualiza los datos de un vehiculo existente en la base de datos.
+  - Funcion buscar_patente(): Funcion para buscar un vehiculo por patente en la base de datos.
+  - Funcion buscar_propietario(): Funcion para buscar un vehiculo por "id_Cliente" en la base de datos.
+  - Funcion mostrar(): Funcion para mostrar todos los vehiculos en la base de datos.
+  - Funcion consultar(): Funcion para consultar si existe un vehiculo en la base de datos.
+  - Funcion eliminar(): Elimina un vehiculo de la base de datos.
 
-Órdenes de Trabajo: Contiene detalles de las reparaciones solicitadas para cada vehículo, como el número de orden, estado de la reparación.
+- **ot.py:** Archivo con el CRUD del módulo ORDENES.
+  - Funcion crear(): La función crear() permite registrar una nueva orden de trabajo para un vehículo específico en una base de datos solicitando la patente del vehículo y el motivo de la avería, y luego almacenando esta información junto con la fecha actual en la tabla ordenes.
+  - Funcion consultar(): La función consultar(id) busca y muestra todas las órdenes de trabajo que tienen un estado específico (id) en la base de datos formateando y mostrando los detalles relevantes de cada orden si se encuentran.
+  - Funcion asignar(): la función asignar() facilita la asignación de una orden de trabajo a un mecánico específico en la base de datos verificando la existencia de la orden y del mecánico antes de realizar la asignación.
+  - Funcion mostrar_ordenes(): La función mostrar_ordenes() realiza una consulta a la base de datos para recuperar todas las órdenes almacenadas y las muestra en la consola. Si no hay órdenes disponibles, informa al usuario de esta situación.
+  - Funcion buscar(): la función buscar(id) permite verificar la existencia de una orden específica en la base de datos a través de su idOrden devolviendo True si la orden existe y False si no existe.
+  - Funcion update(): La función update(id, status) permite modificar el estado de una orden específica en la base de datos.
 
-Inventario: Registra el inventario de repuestos disponibles en el taller, incluyendo detalles como el nombre del repuesto, cantidad en stock y precio unitario.
+- **sql:** Archivo qué contiene el código necesario para establecer la conexión, desconexion y realizar consultas con la base de datos.
 
-Facturas: Almacena detalles de las facturas generadas para los servicios realizados, incluyendo información de la orden de trabajo asociada, repuestos utilizados y el costo total de la factura.
+### **Carpeta BD**
+- **CROWFOOT.jpeg:** Archivo en formato jpeg con el diagrama de la base de datos en notación Crowfoot.
+- **Notacion de CHEN.jpeg:** Archivo en formato jpeg con el diagrama de la base de datos en notación de CHEN.
+- **taller.mwb:** Archivo en formato mwb con el Crowfoot de la base de datos.
+- **taller.sql:** Archivo en formato sql qué contiene el script para crear las tablas y sus respectivos datos en la base de datos.
+
+### **Carpeta Pseudocodigo**
+- **Diagrama de flujo.png:** Archivo en formato png qué contiene el diagrama de flujo de la aplicación.
+- **EPS.txt:** Un archivo en formato txt qué contiene el análisis EPS (Entrada, Proceso, Salida) del programa.
+- **Sistema-Taller.psc:** Archivo en formato psc qué contiene el pseudocódigo del menú principal del programa.
+
+### **Otros archivos**
+- **.gitignore:** Archivo de configuración en el cuál se especifica qué archivos se van a ignorar al hacer un push. Por ej. dependencias,  archivos de configuración de VSC, etc.
+- **Análisis.txt:** Archivo en formato txt qué contiene el análisis  de funcionamiento del programa.
+- **README.md**: Archivo en formato markdown qué contiene principalmente  información sobre el contenido del repositorio, el funcionamiento general del programa y cómo utilizarlo.
+- **Video:** Video explicativo del uso de la aplicacion, con casos de uso y ejemplos.
+
+## **Cómo usar la aplicación**
+
+En el menú principal del programa se mostrarán opciones para interactuar con las diferentes funcionalidades de cada módulo.  
+Al elegir alguno de estos módulos se darán las opciones de crear, eliminar, actualizar o mostrar instancias de una entidad, según el módulo qué se seleccione.  
+Una vez seleccionado un módulo se deberá elegir a continuación qué acción se desea realizar ( crear, eliminar, actualizar o mostrar) y luego se deberá ingresar los datos solicitados por el programa.
+El resultado se mostrará en terminal de acuerdo a las opciones elegidas.
+NOTA: Revisar el archivo **Video** del repositorio para informacion adicional.
+
+## **Requisitos de la aplicación**
+
+Para utilizar el programa se deberá instalar lo siguiente:  
+- SQL y MySQL Workbench- Se recomienda desde la web [MySQL Installer](https://dev.mysql.com/downloads/installer/ "MySQL Installer")
+- SQL Connector - Desde la terminal usar el comando pip install mysqlx-connector-python.
+- Pandas - Desde la terminal usar el comando pip install pandas.
+- Tabulate - Desde la terminal usar el comando pip install tabulate.
