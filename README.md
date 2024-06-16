@@ -1,7 +1,7 @@
 # **Modulo Programacion - Proyecto Integrador - Grupo 24** - **Propuesta: Desarrollo de un Sistema de Gestión para un Taller Mecánico.**
 
 
-## Miembros:
+## Miembros
 
 
             Nombre: Daniel
