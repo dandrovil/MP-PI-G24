@@ -7,8 +7,8 @@ if os.name == 'nt':
     screen = 'cls'
 else:
     screen = 'clear'
-    
 
+#La funcion mostrar_menu() muestra el menu principal del programa.
 def mostrar_menu():
     while True:
         os.system(screen)
@@ -41,8 +41,8 @@ def mostrar_menu():
                 print("")
                 print("                 (1) ---> CREAR NUEVA ORDEN DE TRABAJO") 
                 print("                 (2) ---> CONSULTAR ORDENES POR ESTADO")
-                print("                 (3) ---> ASIGNAR DE ORTDEN DE TRABAJO A MECANICO")
-                print("                 (4) ---> MOSTRAR ORDENES")
+                print("                 (3) ---> ACTUALIZAR DE ORDENES DE TRABAJO")
+                print("                 (4) ---> MOSTRAR TODAS LAS ORDENES")
                 print("                 (5) ---> VOLVER AL MENU ANTERIOR")
                 print("")
                 print("..................................................................")
@@ -50,55 +50,43 @@ def mostrar_menu():
                 op = int(input("Seleccione una opción: "))
                         
                 if op == 1:
-                    ot.crear()
+                    os.system(screen)
+                    ot.agregar()
                     msvcrt.getch()
                 
                 elif op == 2:
-                    o = 1
-                    while o != 0:
-                        os.system(screen)
-                        print("............Bienvenido al Sistema de Taller Mecanico..............")
-                        print("")
-                        print("                       <<< ESTADOS >>>")
-                        print("                       ===============")
-                        print("")
-                        print("                 (1) ---> INGRESADO") 
-                        print("                 (2) ---> ASIGNADO")
-                        print("                 (3) ---> PRESUPUESTADO")
-                        print("                 (4) ---> APROBADO")
-                        print("                 (5) ---> RECHAZADO")
-                        print("                 (6) ---> REPARADO")
-                        print("                 (0) ---> SALIR DE LA CONSULTA")
-                        print("")
-                        print("..................................................................")
-            
-                        o = int(input("Seleccione una opción: "))
+                   os.system(screen)
+                   print("(1) ---> Buscar por numero de orden")
+                   print("(2) ---> Buscar por DNI/CUIT de cliente")
+                   print("(3) ---> Buscar por patende del vehiculo")
+                   print("(4) ---> Buscar por fecha de ingreso")
+                   print("----------------------------------------")
+                   o = int(input("Seleccione una opción: "))
+                   if o == 1 or o == 2 or o == 3 or o == 4:
+                         os.system(screen)
+                         ot.buscar(o)
+                   else:
+                       print("\nOpción no válida - Operacion Candelada")
+                   msvcrt.getch()
                         
-                        if o == 1:
-                            ot.consultar("ingresado")
-                            msvcrt.getch()
-                        elif o == 2:
-                            ot.consultar("asignado")
-                            msvcrt.getch()
-                        elif o == 3:
-                            ot.consultar("presupuestado")
-                            msvcrt.getch()
-                        elif o == 4:
-                            ot.consultar("aprobado")
-                            msvcrt.getch()
-                        elif o == 5:
-                            ot.consultar("rechazado")
-                            msvcrt.getch()
-                        elif o == 6:
-                            ot.consultar("reparado")
-                            msvcrt.getch()
-                                           
                 elif op == 3:
-                    ot.asignar()
-                    msvcrt.getch()
-                                   
+                     os.system(screen)
+                     print("(1) ---> Modificar detalles del problema")
+                     print("(2) ---> Asignar / Cambiar Mecanico")
+                     print("(3) ---> Cerrar Orden de Trabajo")
+                     print("(4) ---> Cambiar fecha de ingreso")
+                     print("----------------------------------------")
+                     op3 = int(input("Seleccione una opción: "))
+                     if op3 == 1 or op3 == 2 or op3 == 3 or op3 == 4:
+                         os.system(screen)
+                         ot.asignar(op3)
+                     else:
+                         print("\nOpción no válida - Operacion Candelada")
+                     msvcrt.getch()
+                                                       
                 elif op == 4:                
-                    ot.mostrar_ordenes()
+                    os.system(screen)
+                    ot.mostrar()
                     msvcrt.getch()
 
                 elif op == 5:
@@ -285,23 +273,28 @@ def mostrar_menu():
                 op = int(input("Seleccione una opción: "))
             
                 if op == 1:
+                    os.system(screen)
                     stock.agregar()
                     msvcrt.getch()
                 
                 elif op == 2:
+                    os.system(screen)
                     stock.actualizar()
                     msvcrt.getch()
                 
                 elif op == 3:
+                    os.system(screen)
                     id = input("Ingrese codigo de repuesto: ")
                     stock.buscar(id)
                     msvcrt.getch()
                 
                 elif op == 4:
+                    os.system(screen)
                     stock.eliminar()
                     msvcrt.getch()
                 
                 elif op == 5:
+                    os.system(screen)
                     stock.mostrar()
                     msvcrt.getch()
                 
@@ -310,7 +303,7 @@ def mostrar_menu():
             
         elif opcion == 6:
             op = 0
-            while op != 6:
+            while op != 7:
                 os.system(screen)
                 print("............Bienvenido al Sistema de Taller Mecanico..............")
                 print("")
@@ -319,45 +312,54 @@ def mostrar_menu():
                 print("")
                 print("                 (1) ---> CREAR PRESUPUESTO")
                 print("                 (2) ---> APROBAR/RECHAZAR PRESUPUESTO")
-                print("                 (3) ---> BUSCAR PRESUPUESTOS POR NRO. DE ORDEN")
-                print("                 (4) ---> MOSTRAR TODOS LOS PRESUPUESTOS")
-                print("                 (5) ---> MOSTRAR PRESUPUESOS EN DETALLE")
-                print("                 (6) ---> VOLVER AL MENU ANTERIOR")
+                print("                 (3) ---> MOSTRAR TODOS LOS PRESUPUESTOS")
+                print("                 (4) ---> MOSTRAR PRESUPUESOS EN DETALLE")
+                print("                 (5) ---> GENERAR FACTURA")
+                print("                 (6) ---> BUSCAR UN POR NRO DE ORDEN")
+                print("                 (7) ---> VOLVER AL MENU ANTERIOR")
                 print("")
                 print("..................................................................")
             
                 op = int(input("Seleccione una opción: "))
             
                 if op == 1:
-                    presupuestos.crear()
+                    os.system(screen)
+                    presupuestos.agregar()
                     msvcrt.getch()
                 
                 elif op == 2:
+                    os.system(screen)
                     presupuestos.oknok()
                     msvcrt.getch()
                                     
                 elif op == 3:
-                    id = input("Ingrese Nro. de orden a buscar: ")
-                    presupuestos.buscar(id)
-                    msvcrt.getch()
-                    pass
-                
-                elif op == 4:
+                    os.system(screen)
                     presupuestos.mostrar()
                     msvcrt.getch()
-                                    
-                elif op == 5:
+                                   
+                elif op == 4:
+                    os.system(screen)
                     id = input("Ingrese Nro. de presupuesto a detallar: ")
                     presupuestos.detalle(id)
                     msvcrt.getch()
                                     
+                elif op == 5:
+                    os.system(screen)
+                    presupuestos.generar()
+                    msvcrt.getch()
+                                    
                 elif op == 6:
+                    os.system(screen)
+                    id = input("Ingrese Nro. de orden de repuesto: ")
+                    presupuestos.buscar(id)
+                    msvcrt.getch()
+                
+                elif op == 7:
                     pass
-            pass
-        
+                    
         elif opcion == 7:
             print("Saliendo del sistema....")
-            # sql.cerrar_bd() cerrar base de datos
+            sql.cerrar_bd()
             break
         else:
             print("Opción no válida. Por favor, presione una tecla para continuar.", end='')

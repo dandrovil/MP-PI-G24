@@ -41,10 +41,10 @@ def actualizar():
             print("Opcion no valida")
             return
         query = f'UPDATE mecanicos SET {"apeynom" if mod == 1 else "especialidad" if mod == 2 else "telefono" if mod == 3 else "email"} = %s WHERE idmeca = %s'
-        values = (apeynom, especialidad, telefono, email, idmeca)
+        values = (apeynom if mod == 1 else especialidad if mod == 2 else telefono if mod == 3 else email, idmeca)
         sql.cursor.execute(query, values)
         sql.conexion.commit()
-        print(f'nEl mecanico {idmeca} actualizado con exito.')
+        print(f'\nEl mecanico {idmeca} actualizado con exito.')
     else:
         print(f'\nEl mecanico {idmeca} no existe en la base de datos.')
 
@@ -90,7 +90,7 @@ def eliminar():
         else:
             print(f'\nOperación cancelada.')
     else:
-        print(f'Mecanico con ID {idmeca} no existe en la base de datos.')
+        print(f'\nEl codigo {idmeca} no existe en la base de datos.')
 
 
 #Funcion para mostrar todos los clientes en la base de datos.

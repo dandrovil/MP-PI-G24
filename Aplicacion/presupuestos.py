@@ -1,140 +1,211 @@
-import sql
+import sql, os, msvcrt
 import mecanicos,stock, ot
+import datetime
+import pandas as pd
+from tabulate import tabulate
+from decimal import Decimal, getcontext
 
-#Funcion para CREAR  NUEVO PRESUPUESTO en la base  de datos. / LISTO
-def crear():
+if os.name == 'nt':
+    screen = 'cls'
+else:
+    screen = 'clear'
+
+#Funcion para crear un nuevo presupuesto en la base  de datos. 
+def agregar():
     idmeca = input('Ingrese su codigo del mecanico: ')
     if(mecanicos.consultar(idmeca)):
-        query = "SELECT * FROM ordenes WHERE mecanico = %s AND estado = %s"
-        values = (idmeca, "ASIGNADO")
+        query = """
+        SELECT ordenes.idOrden, ordenes.fecha_ingreso, autos.marca, autos.modelo, ordenes.patente, ordenes.averia
+        FROM ordenes
+        INNER JOIN autos ON ordenes.patente = autos.patente
+        WHERE mecanico = %s AND estado = %s
+        """
+        values = (idmeca, "Asignado")
         sql.cursor.execute(query,values)
+        nombres_de_columnas = ['NRO. ORDEN', 'FECHA INGRESO', 'MARCA', 'MODELO', 'DOMINIO', 'MOTIVO']
         ordenes = sql.cursor.fetchall()
+        df = pd.DataFrame(ordenes, columns=nombres_de_columnas)
         if ordenes:
-            for orden in ordenes:
-                print("--------------------")
-                print(f"Nro. de Orden: {orden[0]}")
-                print(f"Vehiculo: {orden[1]}")
-                print(f"Fecha ingreso: {orden[2].strftime("%Y-%m-%d")}")
-                print(f"Motivo: {orden[3]}")
-                print("--------------------")
-            nroorden = input("Ingrese numero de orden a presupuestar: ")
+            print(tabulate(df, headers='keys', tablefmt='pretty', showindex=False, colalign=("center",)*len(nombres_de_columnas)))
+            nroorden = input("\nIngrese numero de orden a presupuestar: ")
             tot = 0
-            opc = True
-            while opc:
-                nrorep = input("Ingrese Codigo de repuesto: ")
-                if (stock.consultar(nrorep)):
-                    query = "SELECT * FROM stock WHERE idstock = %s"
-                    values = (nrorep,)
-                    sql.cursor.execute(query,values)
-                    nombre = sql.cursor.fetchone()
-                    print(nombre[2])
-                    cant = int(input("Cantidad: "))
-                    precio = float(input("Precio: "))
-                    sub = cant * precio
-                    tot = tot + sub
-                    query = 'INSERT INTO pedidos (idorden, idstock, cantidad, preciou, subtotal) VALUES (%s, %s, %s, %s, %s)'
-                    values = (nroorden, nrorep, cant, precio, sub)
-                    sql.cursor.execute(query, values)
-                    sql.conexion.commit()
-                    opc = input("Quiere cargar mas repuestos(S/N): ")
-                    if opc.lower() == "n":
-                        opc = False
-                else:
-                    print(f"El codigo {nrorep} es inexistente")
+            nrorep = 1
+            while nrorep != 0:
+                os.system(screen)
+                nrorep = int(input("\nIngrese Codigo de repuesto: (0 para salir) "))
+                if nrorep != 0:
+                    if (stock.consultar(nrorep)):
+                        query = "SELECT * FROM stock WHERE idstock = %s"
+                        values = (nrorep,)
+                        sql.cursor.execute(query,values)
+                        nombre = sql.cursor.fetchone()
+                        print(nombre[2])
+                        cant = int(input("Cantidad: "))
+                        precio = float(input("Precio: "))
+                        sub = cant * precio
+                        tot = tot + sub
+                        query = 'INSERT INTO pedidos (idorden, idstock, cantidad, preciou, subtotal) VALUES (%s, %s, %s, %s, %s)'
+                        values = (nroorden, nrorep, cant, precio, sub)
+                        sql.cursor.execute(query, values)
+                        sql.conexion.commit()
+                    else:
+                        print(f"\nEl codigo {nrorep} es inexistente")
+                        msvcrt.getch()
         else:
              print("No tiene ordenes para presupuestar.")
              return
     else:
         print(f'El codigo de mecanico {idmeca} no existe.')
         return
-    
-    trabajo = input("Describa trabajo realizado: ")
-    costo = float(input("Ingrese costo de mano de obra: $ "))
+   
+    trabajo = input("\nDescriba trabajo realizado: ")
+    costo = float(input("\nIngrese costo de mano de obra: $ "))
     total = tot + costo
     query = 'INSERT INTO presupuesto (idorden, desc_trabajo, p_repuestos, p_manodeobra, total) VALUES (%s, %s, %s, %s, %s)'
     values = (nroorden, trabajo, tot, costo, total)
     sql.cursor.execute(query, values)
     sql.conexion.commit()
-    ot.update(nroorden, "PRESUPUESTADO")
-    print(f"Presupuesto para la orden de trabajo N° {nroorden} ha sido confeccionado")
+    ot.update(nroorden, "Presupuestado")
+    print(f"\nPresupuesto para la orden de trabajo N° {nroorden} ha sido confeccionado")
     
-#Funcion para ACTUALIZAR DATOS DE UN PRESUPUESTO en la base de datos. / LISTO
-def actualizar():
-    cod_presupuesto = int(input('Codigo del presupuesto que desea modificar: '))
-    if(buscarPresupuesto(cod_presupuesto)):
-        cantidad = int(input('Nueva cantidad: '))
-        precio_unitario = int(input('Nuevo precio unitario: '))
-        mano_obra = int(input('Nuevo precio por mano de obra: '))
-        subtotal = int(input('Nuevo subtotal: '))
-
-        query = 'UPDATE taller.Presupuesto SET cantidad = %s, precio_unitario = %s, mano_obra = %s, subtotal = %s WHERE cod_presupuesto = %s'
-        values = (cantidad, precio_unitario, mano_obra, subtotal, cod_presupuesto)
-
-        sql.cursor.execute(query, values)
-        sql.conexion.commit()
-        print(f'Presupuesto con codigo {cod_presupuesto} modificado con exito')
-    else:
-        print(f'NO EXISTE presupuesto con codigo {cod_presupuesto}. No se realizaron modificaciones.')
-
-def oknok():
-    query = 'SELECT * FROM presupuesto'
-    sql.cursor.execute(query)
+# La funcion generar() sirve para generar la factura carga los datos en la tabla facturacion.
+def generar():
+    query = """
+    SELECT presupuesto.idpresupuesto, presupuesto.idorden, presupuesto.desc_trabajo, presupuesto.p_repuestos, presupuesto.p_manodeobra, presupuesto.total
+    FROM presupuesto
+    WHERE estado = %s
+    """
+    values = ('Aprobado',)
+    sql.cursor.execute(query, values)
+    nombres_de_columnas = ['NRO. PRESUPUESTO', 'NRO. ORDEN', 'DESCRIPCION', 'REPUESTOS', 'MANO DE OBRA', 'TOTAL']
     presupuestos = sql.cursor.fetchall()
+    df = pd.DataFrame(presupuestos, columns=nombres_de_columnas)
     if presupuestos:
+        print(tabulate(df, headers='keys', tablefmt='pretty', showindex=False, colalign=("center",)*len(nombres_de_columnas)))
+        npre = int(input('\nIngrese el numero de presupuesto a facturar: '))
+        ans = ""
+        while ans != 's' and ans != 'n':
+            ans = input("\nEs consumidor final? (s/n): ")
+            if ans.lower() == 's':
+                cf = 1
+            elif ans.lower() == 'n':
+                cf = 0
+            else:
+                print("Opcion invalida.")
+        nor = 0
+        tot = Decimal(0)
         for presupuesto in presupuestos:
-            print(presupuesto)
-    else:
-        print("No hay presupuestos para mostrar")
-    
-    p = input('Ingrese el numero de presupuesto a aprobar o rechazar: ')
-    o = 0
-    for presupuesto in presupuestos:
-        if p == presupuestos[0]:
-            o == presupuestos[1]
-    e = input("Aprobado o Rechazado (A/R): ")
-    if e.lower() == "r":
-        ot.update(o, "RECHAZADO")
-        query = 'DELETE FROM pedidos WHERE idorden = %s'
-        values = (o,)
+            if npre == presupuesto[0]:
+                nor = presupuesto[1]
+                tot = Decimal(presupuesto[5])
+                break
+        query = """
+        select autos.id_Cliente
+        from autos
+        inner join ordenes on autos.patente = ordenes.patente
+        where idOrden = %s
+        """
+        values = (nor,)
+        sql.cursor.execute(query, values)
+        idcliente = sql.cursor.fetchone()
+        dni_cuit = idcliente[0]
+        x=datetime.datetime.now()
+        fecha = x.strftime("%Y-%m-%d")
+        iva =  0.0
+        if cf == 0:
+             iva = tot * Decimal('0.21')
+             tot = tot + iva
+        query = 'INSERT INTO facturas (idpresupuesto, dni_cuit, fechaemision, consumidorfinal, iva, total) VALUES (%s, %s, %s, %s, %s, %s)'
+        values = (npre, dni_cuit, fecha, cf, iva, tot)
         sql.cursor.execute(query, values)
         sql.conexion.commit()
-        query = 'DELETE FROM presupuesto WHERE idpresupuesto = %s'
-        values = (p,)
-        sql.cursor.execute(query, values)
-        sql.conexion.commit()
-        print(f'El presupuesto Nº {p} fue eliminado.')
-    elif e.lower() == "a":
-         ot.update(o, "APROBADO")
+        update(nor, "Facturado")
+        ot.update(nor, "Finalizado")
+        print("\nLa factura ha sido generada")
+
+#La funcion oknok() sirve para aceptar o rechazar un presupuesto modificando la tabla
+#stock si es aprobado y la tabla pedidos si es rechazado.        
+def oknok():
+    query = """
+    SELECT presupuesto.idpresupuesto, presupuesto.idorden, presupuesto.desc_trabajo, presupuesto.p_repuestos, presupuesto.p_manodeobra, presupuesto.total
+    FROM presupuesto
+    WHERE estado = %s
+    """
+    values = ('Pendiente',)
+    sql.cursor.execute(query, values)
+    nombres_de_columnas = ['NRO. PRESUPUESTO', 'NRO. ORDEN', 'DESCRIPCION', 'REPUESTOS', 'MANO DE OBRA', 'TOTAL']
+    presupuestos = sql.cursor.fetchall()
+    df = pd.DataFrame(presupuestos, columns=nombres_de_columnas)
+    if presupuestos:
+        print(tabulate(df, headers='keys', tablefmt='pretty', showindex=False, colalign=("center",)*len(nombres_de_columnas)))
+        nrop = int(input('\nIngrese el numero de presupuesto a aprobar o rechazar: '))
+        orden = 0
+        for presupuesto in presupuestos:
+            if nrop == presupuesto[0]:
+                orden = presupuesto[1]
+                break
+        print("---------------------")
+        print("(1) - A P R O B A R")
+        print("(2) - R E C H A Z A R")
+        print("---------------------")
+        op = int(input("Su opcion: "))
+        if op == "1":
+             update(orden, "Aprobado")
+             query = 'SELECT pedidos.idstock, pedidos.cantidad FROM pedidos WHERE idorden = %s'
+             values = (orden,)
+             sql.cursor.execute(query, values)
+             pedidos = sql.cursor.fetchall()
+             for pedido in pedidos:
+                 idstock, cantidad = pedido
+                 print(idstock, cantidad)
+                 query = 'UPDATE stock SET existencia = existencia - %s WHERE idstock = %s'
+                 values = (cantidad, idstock) 
+                 sql.cursor.execute(query, values)
+             sql.conexion.commit()
+             print(f"\nEl presupuesto Nro. {nrop} ha sido aprobado y el stock actualizado.")
+        elif op == 2:
+            update(orden, "Rechazado")
+            query = 'DELETE FROM pedidos WHERE idorden = %s'
+            values = (orden,)
+            sql.cursor.execute(query, values)
+            sql.conexion.commit()
+            print(f'El presupuesto Nº {nrop} ha sido rechazado y el pedido fue eliminado.')
+        else:
+            print("Opcion invalida")
     else:
-        return
-  
+        print("No hay presupuestos pendientes de aprobación")
+
+#La funcion detalle() sirve para mostrar un presupuesto con la parte de los pedidos de stock.  
 def detalle(id):
     if(consultar(id)):
         query = 'SELECT * FROM presupuesto WHERE idpresupuesto = %s'
         values = (id,)
         sql.cursor.execute(query, values)
         presupuesto = sql.cursor.fetchone()
-        print("-----------------------------------------------------")
         print(f"Nro. de Presupuesto: {presupuesto[0]}")
         print(f"Corresponde a Nro. de Orden: {presupuesto[1]}")
         print(f"Descripcion del trabajo realizado: {presupuesto[2]}")
-        print("-----------------------------------------------------")
-        query = 'select stock.descripcion, pedidos.cantidad, pedidos.preciou from stock inner join pedidos on stock.idstock = pedidos.idstock where idorden = %s'
+        query = """
+        SELECT pedidos.cantidad, stock.descripcion, pedidos.preciou,pedidos.subtotal 
+        FROM stock 
+        INNER JOIN pedidos ON stock.idstock = pedidos.idstock 
+        WHERE idorden = %s
+        """
         values = (presupuesto[1],)
         sql.cursor.execute(query, values)
+        nombres_de_columnas = ['CANTIDAD', 'DESCRIPCION', 'PRECIO UNITARIO', 'SUBTOTAL']
         resultados = sql.cursor.fetchall()
-        for resultado in resultados:
-            print(resultado)
-        print("-----------------------------------------------------")
-        print(f"Total de Repuestos: {presupuesto[3]}")
-        print(f"Precio de mano de obra: {presupuesto[4]}")
-        print(f"Importe total: {presupuesto[5]}")
-        print("----------------------------------------------------")
+        df = pd.DataFrame(resultados, columns=nombres_de_columnas)
+        if resultados:
+            print(tabulate(df, headers='keys', tablefmt='pretty', showindex=False, colalign=("center",)*len(nombres_de_columnas)))
+        print(f"Total de Repuestos: {presupuesto[3]}".rjust(62, " "))
+        print(f"Precio de mano de obra: {presupuesto[4]}".rjust(62, " "))
+        print(f"Importe total: {presupuesto[5]}".rjust(62, " "))
     else:
         print(f"No existe el presupesto N° {id}")
          
 
-#Funcion para BUCAR UN PRESUPUESTO POR CODIGO en la base. / LISTO
+#Funcion para buscar un preseupuesto por numero de orden en la base de datos.
 def buscar(id):
     query = 'SELECT * FROM presupuesto WHERE idorden = %s'
     values = (id,)
@@ -153,28 +224,21 @@ def buscar(id):
     else:
         print(f'La orden N° {id} no tiene cargado un presupuesto.')
 
-#Funcion para MOSTRAR TODOS LOS PRESUPUESTOS creados en la base de datos. / LISTO
+#Funcion para mostrar todos los presupuestos creados en la base de datos. 
 def mostrar():
     query = 'SELECT * FROM presupuesto'
     sql.cursor.execute(query)
+    nombres_de_columnas = ['NRO. PRESUPUESTO', 'NRO. ORDEN', 'DESCRIPCION', 'REPUESTOS', 'MANO DE OBRA', 'TOTAL', 'ESTADO']
     presupuestos = sql.cursor.fetchall()
-
+    df = pd.DataFrame(presupuestos, columns=nombres_de_columnas)
     if presupuestos:
-        for presupuesto in presupuestos:
-            print("-----------------------------------------------------")
-            print(f"Nro. de Presupuesto: {presupuesto[0]}")
-            print(f"Corresponde a Nro. de Orden: {presupuesto[1]}")
-            print(f"Descripcion del trabajo realizado: {presupuesto[2]}")
-            print(f"Precio de repuestos: {presupuesto[3]}")
-            print(f"Precio de mano de obra: {presupuesto[4]}")
-            print(f"Importe total: {presupuesto[5]}")
-            print("----------------------------------------------------")
+        print(tabulate(df, headers='keys', tablefmt='pretty', showindex=False, colalign=("center",)*len(nombres_de_columnas)))
     else:
         print('No hay ningun presupuesto cargado en la base de datos.')
 
 
-#######################################################################
-#BUSCAR UN PRESUPUESTO POR CODIGO. Funcion usada anteriormente.
+#la función consultar(id) permite verificar la existencia de una presupuesto en la base de datos a través de su idpresupuesto, 
+# devolviendo True si la orden existe y False si no existe.
 def consultar(id):
     query = 'SELECT * FROM presupuesto WHERE idpresupuesto = %s'
     values = (id,)
@@ -184,3 +248,10 @@ def consultar(id):
         return True
     else:
         return False
+
+#La función update() actualiza una orden de trabajo existente
+def update(id,status):
+    query = "UPDATE presupuesto SET estado = %s WHERE idOrden = %s"
+    values = (status, id)
+    sql.cursor.execute(query, values)
+    sql.conexion.commit()

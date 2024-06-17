@@ -91,7 +91,7 @@ def eliminar():
         else:
             print(f'\nOperación cancelada.')
     else:
-        print(f"'\nEl cliente {dni_cuit} no existe en la base de datos.")
+        print(f"'\nEl codigo {dni_cuit} no existe en la base de datos.")
 
 #Funcion para mostrar todos los clientes en la base de datos.
 def mostrar():
