@@ -91,7 +91,8 @@ Para utilizar el programa se deberá instalar lo siguiente:
 
 
 ## Mapa de la Aplicación
-[![5649876513.png](https://i.postimg.cc/j2TYLyDJ/5649876513.png)](https://postimg.cc/47WS07bJ)
+[![Mapa-Aplicacion.png](https://i.postimg.cc/FK4jPpBB/Mapa-Aplicacion.png)](https://postimg.cc/4YW7y6Z6)
+
 
 
 ## **Contenido del repositorio**
