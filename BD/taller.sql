@@ -72,38 +72,6 @@ INSERT INTO `clientes` VALUES (20123456789,'Juan Perez','Calle Falsa 123','12345
 UNLOCK TABLES;
 
 --
--- Table structure for table `facturas`
---
-
-DROP TABLE IF EXISTS `facturas`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `facturas` (
-  `idfacturas` int NOT NULL AUTO_INCREMENT,
-  `idpresupuesto` int DEFAULT NULL,
-  `dni_cuit` bigint NOT NULL,
-  `fechaemision` datetime DEFAULT NULL,
-  `consumidorfinal` tinyint(1) DEFAULT NULL,
-  `preciorepuesto` decimal(9,2) DEFAULT NULL,
-  `manodeobra` decimal(5,2) DEFAULT NULL,
-  `subtotal` decimal(9,2) DEFAULT NULL,
-  `iva` decimal(9,2) DEFAULT NULL,
-  `total` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`idfacturas`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `facturas`
---
-
-LOCK TABLES `facturas` WRITE;
-/*!40000 ALTER TABLE `facturas` DISABLE KEYS */;
-INSERT INTO `facturas` VALUES (1,1,20123456789,'2024-06-01 10:00:00',1,500.00,150.00,650.00,0.00,650.00),(2,1,20123456789,'2024-06-01 10:00:00',1,500.00,150.00,650.00,0.00,650.00),(3,4,50123456789,'2024-06-04 13:00:00',0,450.00,120.00,570.00,119.70,689.70);
-/*!40000 ALTER TABLE `facturas` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `mecanicos`
 --
 
@@ -155,64 +123,8 @@ CREATE TABLE `ordenes` (
 
 LOCK TABLES `ordenes` WRITE;
 /*!40000 ALTER TABLE `ordenes` DISABLE KEYS */;
-INSERT INTO `ordenes` VALUES (5,'ab123cd','2024-06-13','Cambio de aceite','0000-00-00','ASIGNADO',3),(6,'ij789kl','2024-06-13','Service 10000 kilometros','0000-00-00','PRESUPUESTADO',2),(7,'qr345st','2024-06-13','Calentamiento del motor','0000-00-00','ASIGNADO',1);
+INSERT INTO `ordenes` VALUES (5,'ab123cd','2024-06-13','Cambio de aceite','0000-00-00','ASIGNADO',3),(6,'ij789kl','2024-06-13','Service 10000 kilometros','0000-00-00','INGRESADO',0),(7,'qr345st','2024-06-13','Calentamiento del motor','0000-00-00','ASIGNADO',1);
 /*!40000 ALTER TABLE `ordenes` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pedidos`
---
-
-DROP TABLE IF EXISTS `pedidos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pedidos` (
-  `idpedido` int NOT NULL AUTO_INCREMENT,
-  `idorden` int NOT NULL,
-  `idstock` int NOT NULL,
-  `cantidad` int NOT NULL,
-  `preciou` decimal(9,2) DEFAULT NULL,
-  `subtotal` decimal(9,2) NOT NULL,
-  PRIMARY KEY (`idpedido`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pedidos`
---
-
-LOCK TABLES `pedidos` WRITE;
-/*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
-INSERT INTO `pedidos` VALUES (1,7,101,2,1000.00,2000.00),(2,7,102,1,2500.00,2500.00),(8,6,105,4,112000.00,448000.00);
-/*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `presupuesto`
---
-
-DROP TABLE IF EXISTS `presupuesto`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `presupuesto` (
-  `idpresupuesto` int NOT NULL AUTO_INCREMENT,
-  `idorden` int NOT NULL,
-  `desc_trabajo` longtext,
-  `p_repuestos` decimal(9,2) DEFAULT NULL,
-  `p_manodeobra` decimal(9,2) DEFAULT NULL,
-  `total` decimal(9,2) DEFAULT NULL,
-  PRIMARY KEY (`idpresupuesto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `presupuesto`
---
-
-LOCK TABLES `presupuesto` WRITE;
-/*!40000 ALTER TABLE `presupuesto` DISABLE KEYS */;
-INSERT INTO `presupuesto` VALUES (2,6,'cambio de llantas service alineado balanceo',448000.00,70000.00,518000.00);
-/*!40000 ALTER TABLE `presupuesto` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -240,6 +152,10 @@ LOCK TABLES `stock` WRITE;
 INSERT INTO `stock` VALUES (101,'Toyota','Filtro de aire',50),(102,'Honda','Pastillas de freno',30),(103,'Ford','Aceite de motor',20),(104,'Nissan','Batería',15),(105,'Chevrolet','Llanta',25);
 /*!40000 ALTER TABLE `stock` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'taller'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -250,4 +166,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-14  9:41:20
+-- Dump completed on 2024-06-13 23:47:02
